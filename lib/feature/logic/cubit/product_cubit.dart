@@ -9,7 +9,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 class ProductsCubit extends Cubit<ProductState> {
   ProductsCubit() : super(InitialProductState());
   var  productRepo=getIt<ProductRepo>();
-  double? price;
+  double? priceRealTime;
   StreamSubscription<DocumentSnapshot>? priceSubscription;
   Future<void> fetchAllProducts() async {
     emit(LoadingProductState());
@@ -26,10 +26,10 @@ class ProductsCubit extends Cubit<ProductState> {
         /// Feted saved products
         var fetchAllProductList = await productRepo.fetchAllLocalProducts();
 
-        emit(SuccessProductState(fetchAllProductList));
+        emit(SuccessProductState(fetchAllProductList,priceRealTime.toString()));
       } else {
         final fetchAllProductList = await productRepo.fetchAllLocalProducts();
-        emit(SuccessProductState(fetchAllProductList));
+        emit(SuccessProductState(fetchAllProductList,priceRealTime.toString()));
       }
     } catch (error) {
       emit(ErrorProductState(error.toString()));

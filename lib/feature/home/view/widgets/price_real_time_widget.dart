@@ -33,7 +33,7 @@ class PriceRealTimeWidget extends StatelessWidget {
               Map<String, dynamic> parseData =
                   data.data() as Map<String, dynamic>;
               int price = parseData['price'];
-              context.read<ProductsCubit>().price = price.toDouble();
+              context.read<ProductsCubit>().priceRealTime = price.toDouble();
               return Row(
                 children: [
                   Text(

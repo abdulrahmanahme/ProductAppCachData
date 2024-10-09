@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: BlocBuilder<ProductsCubit, ProductState>(
           builder: (context, state) {
+    
+
             if (state is LoadingProductState) {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -45,10 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 image: state.listProductModel[index].image,
                                 description:
                                     state.listProductModel[index].description,
-                                price: context
-                                    .read<ProductsCubit>()
-                                    .price
-                                    .toString(),
+                                price: state.listProductModel[index].price.toString(),
                               ),
                             ));
                       },

@@ -8,8 +8,9 @@ class InitialProductState extends ProductState {}
 class LoadingProductState extends ProductState {}
 
 class SuccessProductState extends ProductState {
-  SuccessProductState(this.listProductModel);
+  SuccessProductState(this.listProductModel ,this.price);
   List<ProductModel> listProductModel;
+  String price;
 }
 
 class ErrorProductState extends ProductState {

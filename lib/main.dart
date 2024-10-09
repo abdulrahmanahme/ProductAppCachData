@@ -17,7 +17,8 @@ void main() async {
   DioHelper.initializeCache();
 
 ServiceLocator.setup();
-  runApp(const MyApp());
+  runApp(
+    const MyApp());
 }
 
 class MyApp extends StatelessWidget {
